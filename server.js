@@ -10,6 +10,8 @@ dotenv.config({
 path: path.join(__dirname, 'configs', 'config.env')
 })
 
+app.use(express.json())
+
 app.listen(process.env.PORT, () => {
   console.log(
     chalk.greenBright(`Server is running on port ${process.env.PORT}`),
