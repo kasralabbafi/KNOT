@@ -4,13 +4,19 @@ const dotenv = require('dotenv');
 
 const path = require('path');
 
+const userRoute = require("./routes/userRoute");
+
 const app = express();
 
+
 dotenv.config({
-path: path.join(__dirname, 'configs', 'config.env')
+  path: path.join(__dirname, 'configs', 'config.env')
 })
 
 app.use(express.json())
+
+app.use("/user", userRoute);
+
 
 app.listen(process.env.PORT, () => {
   console.log(
